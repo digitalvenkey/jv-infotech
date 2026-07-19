@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JV Infotech Blog - Insights, Tips & Strategies to Grow Your Business. Stay updated with the latest digital marketing trends.">
+    <title>Blog | JV Infotech</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563EB;
+            --secondary: #0F172A;
+            --accent: #3B82F6;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            --text-gray: #64748B;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            --shadow-hover: 0 20px 40px rgba(37, 99, 235, 0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--secondary);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+        p { color: var(--text-gray); line-height: 1.7; }
+        a { text-decoration: none; color: var(--primary); transition: var(--transition); }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Topbar & Navbar */
+        .top-bar {
+            background-color: var(--secondary);
+            color: var(--white);
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+        .top-bar a { color: var(--light); margin-right: 15px; }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .navbar-brand { font-weight: 800; font-size: 1.5rem; color: var(--secondary); }
+        .navbar-brand span { color: var(--primary); }
+        .nav-link { font-weight: 500; color: var(--secondary) !important; margin: 0 10px; }
+        .nav-link.active { color: var(--primary) !important; }
+
+        /* Custom Breadcrumb */
+        .breadcrumb-wrap { padding: 25px 0 0 0; font-size: 0.85rem; }
+        .breadcrumb a { color: var(--text-gray); }
+        .breadcrumb a:hover { color: var(--primary); }
+
+        /* Filter Tabs Buttons */
+        .filter-btn {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            font-weight: 500;
+            color: var(--secondary);
+            margin: 5px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* Search input bar */
+        .search-container {
+            position: relative;
+            max-width: 300px;
+            width: 100%;
+        }
+        .search-container input {
+            padding: 10px 40px 10px 20px;
+            border-radius: 30px;
+            border: 1px solid #E2E8F0;
+            font-size: 0.85rem;
+            width: 100%;
+            background-color: #F8FAFC;
+        }
+        .search-container i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Blog Card Items */
+        .blog-card-wrap {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #F1F5F9;
+            height: 100%;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .blog-card-wrap:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.15);
+        }
+        .blog-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-meta-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: #DBEAFE;
+            padding: 3px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        .blog-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        .blog-author-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Sidebar Widgets */
+        .widget-box {
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid #E2E8F0;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #F1F5F9;
+        }
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        .popular-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #F1F5F9;
+        }
+        .popular-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .popular-img {
+            width: 65px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .category-row-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #F1F5F9;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+        .category-row-list:last-child { border-bottom: none; }
+        .category-row-list span { color: var(--primary); font-weight: 600; }
+
+        /* Pagination Alignment styling */
+        .pagination-custom .page-link {
+            border: 1px solid #E2E8F0;
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            margin: 0 3px;
+            border-radius: 6px;
+        }
+        .pagination-custom .page-item.active .page-link {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Footer horizontal stay ahead banner element structure */
+        .stay-ahead-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: var(--radius);
+            padding: 45px;
+        }
+
+        footer { background-color: var(--secondary); color: var(--white); padding: 80px 0 20px; }
+        .footer-links a { color: #94A3B8; display: block; margin-bottom: 10px; transition: var(--transition); }
+        .footer-links a:hover { color: var(--primary); padding-left: 5px; }
+
+        @media (max-width: 991px) {
+            .stay-ahead-banner { padding: 30px; text-align: center; }
+            .stay-ahead-banner form { margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Bar Strip Line -->
+    <div class="top-bar d-none d-lg-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <a href="tel:+911234567890"><i class="fas fa-phone-alt me-2"></i>+91 8012887018</a>
+                <a href="mailto:info@jvinfotech.com"><i class="fas fa-envelope me-2"></i>jvinfotech@gmail.com</a>
+                <span><i class="fas fa-clock me-2"></i>Mon - Sat: 9:00 AM - 7:00 PM</span>
+            </div>
+            <div>
+                <span class="me-3 opacity-75">Follow Us:</span>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Jv<span>Infotech</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blogNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="blogNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Blogpage.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li>
+                </ul>
+                <a href="ContactUs.html" class="btn btn-primary shadow-sm">Get Free Audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navigation Breadcrumbs Line -->
+    <div class="container breadcrumb-wrap">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Blog Intro Hero Banner -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <span class="text-primary fw-bold text-uppercase d-block mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">Our Blog</span>
+                    <h1 class="display-5 fw-bold mb-3">Insights, Tips & Strategies <span class="text-primary">to Grow Your Business</span></h1>
+                    <p class="fs-6 text-muted mb-0">Stay updated with the latest digital marketing trends, practical tips, and expert insights from our team.</p>
+                </div>
+                <!-- Balanced clean layout buffer visualization element -->
+                <div class="col-lg-6 offset-lg-1 mt-5 mt-lg-0 text-center" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=750&q=80" alt="Blog Illustration" class="img-fluid rounded-4" style="border: 1px solid #f1f5f9;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters & Main Feed Column Block Structure Layout -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            
+            <!-- Filter Bar and Search Input Wrapper Alignment -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-5 gap-3" data-aos="fade-up">
+                <div class="d-flex flex-wrap gap-1">
+                    <button class="filter-btn active">All Articles</button>
+                    <button class="filter-btn">Digital Marketing</button>
+                    <button class="filter-btn">SEO</button>
+                    <button class="filter-btn">Social Media</button>
+                    <button class="filter-btn">Google Ads</button>
+                    <button class="filter-btn">Website Development</button>
+                    <button class="filter-btn">Branding</button>
+                    <button class="filter-btn">Content Marketing</button>
+                </div>
+                <div class="search-container">
+                    <input type="text" placeholder="Search articles...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Main Grid Loop Feeder Columns (Left Side) -->
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        
+                        <!-- Blog Post 1 -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="blog-card-wrap">
+                                <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=500&q=80" alt="SEO Card" class="blog-card-img">
+                                <div class="p-4">
+                                    <span class="blog-meta-tag">SEO</span>
+                                    <h5 class="blog-card-title">10 Powerful SEO Strategies to Rank Higher in 2024</h5>
+                                    <p class="small text-muted mb-4">Boost your website traffic with these proven SEO strategies that actually work.</p>
+                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="blog-author-img" alt="Author">
+                                            <span class="small fw-semibold text-secondary" style="font-size: 0.75rem;">JV Team</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <span class="text-muted small" style="font-size: 0.75rem;"><i class="far fa-calendar me-1"></i>May 15, 2024</span>
+                                            <a href="#" class="small fw-bold">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 2 -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="blog-card-wrap">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80" alt="Ads Card" class="blog-card-img">
+                                <div class="p-4">
+                                    <span class="blog-meta-tag">Google Ads</span>
+                                    <h5 class="blog-card-title">Google Ads Optimization Tips to Get Maximum ROI</h5>
+                                    <p class="small text-muted mb-4">Learn how to optimize your Google Ads campaigns and get the best return.</p>
+                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="blog-author-img" alt="Author">
+                                            <span class="small fw-semibold text-secondary" style="font-size: 0.75rem;">JV Team</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <span class="text-muted small" style="font-size: 0.75rem;"><i class="far fa-calendar me-1"></i>May 10, 2024</span>
+                                            <a href="#" class="small fw-bold">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 3 -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="blog-card-wrap">
+                                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=500&q=80" alt="SMM Card" class="blog-card-img">
+                                <div class="p-4">
+                                    <span class="blog-meta-tag">Social Media</span>
+                                    <h5 class="blog-card-title">Social Media Marketing Tips for Business Growth</h5>
+                                    <p class="small text-muted mb-4">Discover actionable social media marketing tips to grow your brand and customers.</p>
+                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="blog-author-img" alt="Author">
+                                            <span class="small fw-semibold text-secondary" style="font-size: 0.75rem;">JV Team</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <span class="text-muted small" style="font-size: 0.75rem;"><i class="far fa-calendar me-1"></i>May 05, 2024</span>
+                                            <a href="#" class="small fw-bold">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 4 -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="blog-card-wrap">
+                                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=500&q=80" alt="Web Development Card" class="blog-card-img">
+                                <div class="p-4">
+                                    <span class="blog-meta-tag">Website Development</span>
+                                    <h5 class="blog-card-title">How a Fast Website Can Increase Conversions</h5>
+                                    <p class="small text-muted mb-4">Understand the impact of website speed on user experience and conversions.</p>
+                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="blog-author-img" alt="Author">
+                                            <span class="small fw-semibold text-secondary" style="font-size: 0.75rem;">JV Team</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <span class="text-muted small" style="font-size: 0.75rem;"><i class="far fa-calendar me-1"></i>Apr 28, 2024</span>
+                                            <a href="#" class="small fw-bold">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 5 -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="blog-card-wrap">
+                                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=500&q=80" alt="Content Marketing Card" class="blog-card-img">
+                                <div class="p-4">
+                                    <span class="blog-meta-tag">Content Marketing</span>
+                                    <h5 class="blog-card-title">Content Marketing Strategy That Drives Real Results</h5>
+                                    <p class="small text-muted mb-4">Build a powerful content strategy that attracts, engages and converts your audience.</p>
+                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="blog-author-img" alt="Author">
+                                            <span class="small fw-semibold text-secondary" style="font-size: 0.75rem;">JV Team</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <span class="text-muted small" style="font-size: 0.75rem;"><i class="far fa-calendar me-1"></i>Apr 22, 2024</span>
+                                            <a href="#" class="small fw-bold">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 6 -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="blog-card-wrap">
+                                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=500&q=80" alt="Local SEO Card" class="blog-card-img">
+                                <div class="p-4">
+                                    <span class="blog-meta-tag">Local SEO</span>
+                                    <h5 class="blog-card-title">Local SEO: How to Rank #1 on Google Maps</h5>
+                                    <p class="small text-muted mb-4">Step-by-step guide to improve your local rankings and get more local customers.</p>
+                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="blog-author-img" alt="Author">
+                                            <span class="small fw-semibold text-secondary" style="font-size: 0.75rem;">JV Team</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <span class="text-muted small" style="font-size: 0.75rem;"><i class="far fa-calendar me-1"></i>Apr 15, 2024</span>
+                                            <a href="#" class="small fw-bold">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 7 -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="blog-card-wrap">
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80" alt="AI Card" class="blog-card-img">
+                                <div class="p-4">
+                                    <span class="blog-meta-tag">Digital Marketing</span>
+                                    <h5 class="blog-card-title">How AI is Transforming Digital Marketing</h5>
+                                    <p class="small text-muted mb-4">Explore how AI tools and automation are changing the way businesses market.</p>
+                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="blog-author-img" alt="Author">
+                                            <span class="small fw-semibold text-secondary" style="font-size: 0.75rem;">JV Team</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <span class="text-muted small" style="font-size: 0.75rem;"><i class="far fa-calendar me-1"></i>Apr 08, 2024</span>
+                                            <a href="#" class="small fw-bold">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 8 -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="blog-card-wrap">
+                                <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=500&q=80" alt="Email Card" class="blog-card-img">
+                                <div class="p-4">
+                                    <span class="blog-meta-tag">Email Marketing</span>
+                                    <h5 class="blog-card-title">Email Marketing Best Practices for Higher Open Rates</h5>
+                                    <p class="small text-muted mb-4">Improve your email open rates and drive more sales with these best practices.</p>
+                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="blog-author-img" alt="Author">
+                                            <span class="small fw-semibold text-secondary" style="font-size: 0.75rem;">JV Team</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <span class="text-muted small" style="font-size: 0.75rem;"><i class="far fa-calendar me-1"></i>Apr 01, 2024</span>
+                                            <a href="#" class="small fw-bold">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 9 -->
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="blog-card-wrap">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80" alt="Analytics Card" class="blog-card-img">
+                                <div class="p-4">
+                                    <span class="blog-meta-tag">Analytics</span>
+                                    <h5 class="blog-card-title">How to Track & Measure Digital Marketing Success</h5>
+                                    <p class="small text-muted mb-4">Learn the key metrics and tools to track your campaign performance effectively.</p>
+                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="blog-author-img" alt="Author">
+                                            <span class="small fw-semibold text-secondary" style="font-size: 0.75rem;">JV Team</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <span class="text-muted small" style="font-size: 0.75rem;"><i class="far fa-calendar me-1"></i>Mar 25, 2024</span>
+                                            <a href="#" class="small fw-bold">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Numerated Pagination Navigation Component Bar -->
+                    <nav class="mt-5" data-aos="fade-up">
+                        <ul class="pagination pagination-custom justify-content-start">
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">10</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next <i class="fas fa-chevron-right ms-1 small"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Structured Widgets Columns Container Area (Right Side Sidebar) -->
+                <div class="col-lg-4">
+                    
+                    <!-- Widget 1: Popular Articles -->
+                    <div class="widget-box" data-aos="fade-left">
+                        <h5 class="widget-title">Popular Articles</h5>
+                        <div class="popular-item">
+                            <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=100&q=80" alt="thumb" class="popular-img">
+                            <div>
+                                <a href="#" class="d-block text-secondary small fw-bold mb-1 lh-sm">10 Powerful SEO Strategies to Rank Higher in 2024</a>
+                                <small class="text-muted" style="font-size: 0.7rem;"><i class="far fa-calendar me-1"></i>May 15, 2024</small>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=100&q=80" alt="thumb" class="popular-img">
+                            <div>
+                                <a href="#" class="d-block text-secondary small fw-bold mb-1 lh-sm">Google Ads Optimization Tips to Get Maximum ROI</a>
+                                <small class="text-muted" style="font-size: 0.7rem;"><i class="far fa-calendar me-1"></i>May 10, 2024</small>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=100&q=80" alt="thumb" class="popular-img">
+                            <div>
+                                <a href="#" class="d-block text-secondary small fw-bold mb-1 lh-sm">Social Media Marketing Tips for Business Growth</a>
+                                <small class="text-muted" style="font-size: 0.7rem;"><i class="far fa-calendar me-1"></i>May 05, 2024</small>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=100&q=80" alt="thumb" class="popular-img">
+                            <div>
+                                <a href="#" class="d-block text-secondary small fw-bold mb-1 lh-sm">How a Fast Website Can Increase Conversions</a>
+                                <small class="text-muted" style="font-size: 0.7rem;"><i class="far fa-calendar me-1"></i>Apr 28, 2024</small>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=100&q=80" alt="thumb" class="popular-img">
+                            <div>
+                                <a href="#" class="d-block text-secondary small fw-bold mb-1 lh-sm">Local SEO: How to Rank #1 on Google Maps</a>
+                                <small class="text-muted" style="font-size: 0.7rem;"><i class="far fa-calendar me-1"></i>Apr 15, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Widget 2: Categories Count Item List -->
+                    <div class="widget-box" data-aos="fade-left" data-aos-delay="100">
+                        <h5 class="widget-title">Categories</h5>
+                        <div class="category-row-list">Digital Marketing <span>18</span></div>
+                        <div class="category-row-list">SEO <span>16</span></div>
+                        <div class="category-row-list">Social Media <span>14</span></div>
+                        <div class="category-row-list">Google Ads <span>12</span></div>
+                        <div class="category-row-list">Website Development <span>10</span></div>
+                        <div class="category-row-list">Content Marketing <span>09</span></div>
+                        <div class="category-row-list">Branding <span>07</span></div>
+                    </div>
+
+                    <!-- Widget 3: Newsletter Internal Box Widget -->
+                    <div class="widget-box text-center bg-light border-0" data-aos="fade-left" data-aos-delay="200" style="position: relative; overflow: hidden;">
+                        <h5 class="fw-bold mb-2">Subscribe to Our Blog</h5>
+                        <p class="small text-muted mb-4">Get the latest updates and marketing tips delivered to your inbox.</p>
+                        <form class="d-flex flex-column gap-2">
+                            <input type="email" class="form-control rounded-3 border-light-subtle" placeholder="Enter your email" style="font-size: 0.85rem;" required>
+                            <button type="submit" class="btn btn-primary rounded-3 w-100 py-2 mt-1">Subscribe</button>
+                        </form>
+                        <!-- Floating illustration simulation shapes -->
+                        <div class="mt-4 opacity-25">
+                            <i class="fas fa-paper-plane text-primary fs-1"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mid Horizontal Stay Ahead Banner Section -->
+    <section class="py-4">
+        <div class="container">
+            <div class="stay-ahead-banner text-white shadow-sm" data-aos="zoom-in">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h3 class="fw-bold mb-2">Stay Ahead with Digital Insights</h3>
+                        <p class="small text-white-50 mb-0">Subscribe to our newsletter and get the latest tips, trends, and strategies to grow your business.</p>
+                    </div>
+                    <div class="col-lg-6 mt-3 mt-lg-0">
+                        <form class="d-flex flex-column flex-sm-row gap-2 justify-content-lg-end">
+                            <input type="email" class="form-control bg-white text-dark border-0 px-3 py-2" placeholder="Enter your email address" style="border-radius: 8px; max-width: 350px;" required>
+                            <button type="submit" class="btn btn-dark px-4 py-2" style="border-radius: 8px; background-color: var(--secondary);">Subscribe Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area Block Structure -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="fw-bold text-white mb-4">Jv <span class="text-primary">Infotech</span></h3>
+                    <p class="text-white-50 small mb-4">We help businesses grow online with result-driven digital marketing strategies. Your growth is our mission.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Services</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Blog</a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <a href="#">SEO Services</a>
+                    <a href="#">Google Ads Management</a>
+                    <a href="#">Social Media Marketing</a>
+                    <a href="#">Website Development</a>
+                    <a href="#">Local SEO Services</a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-4">Contact Us</h5>
+                    <ul class="list-unstyled text-white-50 small mb-4">
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2 text-primary"></i> +91 12345 67890</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> info@jvinfotech.com</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> Near to Mathigiri X Road, Hosur - 635110</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2 text-primary"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+                    </ul>
+                    <form class="d-flex">
+                        <input type="email" class="form-control bg-transparent text-white border-secondary" placeholder="Your email address" style="border-radius: 8px 0 0 8px;" required>
+                        <button class="btn btn-primary" type="submit" style="border-radius: 0 8px 8px 0;"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <hr class="border-secondary opacity-25">
+            
+            <div class="row pt-3 align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white-50 small mb-0">&copy; 2026 JV Infotech. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0 footer-links">
+                    <a href="#" class="d-inline-block me-3 mb-0 small">Privacy Policy</a>
+                    <a href="#" class="d-inline-block mb-0 small">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize Scroll animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80,
+        });
+    </script>
+</body>
+</html>

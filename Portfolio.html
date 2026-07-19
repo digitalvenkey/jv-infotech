@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our Portfolio - Our Work Speaks For Our Results. View Case Studies by JV Infotech.">
+    <title>Portfolio | JV Infotech</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563EB;
+            --secondary: #0F172A;
+            --accent: #3B82F6;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            --text-gray: #64748B;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            --shadow-hover: 0 20px 40px rgba(37, 99, 235, 0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--secondary);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+        p { color: var(--text-gray); line-height: 1.7; }
+        a { text-decoration: none; color: var(--primary); transition: var(--transition); }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        .btn-outline-custom {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+            background: transparent;
+        }
+        .btn-outline-custom:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Topbar & Navbar */
+        .top-bar {
+            background-color: var(--secondary);
+            color: var(--white);
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+        .top-bar a { color: var(--light); margin-right: 15px; }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .navbar-brand { font-weight: 800; font-size: 1.5rem; color: var(--secondary); }
+        .navbar-brand span { color: var(--primary); }
+        .nav-link { font-weight: 500; color: var(--secondary) !important; margin: 0 10px; }
+        .nav-link.active { color: var(--primary) !important; }
+
+        /* Custom Breadcrumb */
+        .breadcrumb-wrap { padding: 25px 0 0 0; font-size: 0.85rem; }
+        .breadcrumb a { color: var(--text-gray); }
+        .breadcrumb a:hover { color: var(--primary); }
+
+        /* Filter Tabs Buttons */
+        .filter-btn {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            font-weight: 500;
+            color: var(--secondary);
+            margin: 5px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Portfolio Cards Grid Architecture */
+        .portfolio-card-wrap {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #F1F5F9;
+            height: 100%;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .portfolio-card-wrap:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.15);
+        }
+        .portfolio-card-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .case-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        .tag-seo { background: #DCFCE7; color: #16A34A; }
+        .tag-ads { background: #DBEAFE; color: #2563EB; }
+        .tag-social { background: #FCE7F3; color: #DB2777; }
+        .tag-web { background: #E0F2FE; color: #0284C7; }
+        .tag-local { background: #FEF3C7; color: #D97706; }
+        .tag-content { background: #F3E8FF; color: #9333EA; }
+
+        /* Dark Stats Row Bar */
+        .dark-stats-bar {
+            background-color: var(--secondary);
+            color: var(--white);
+            border-radius: var(--radius);
+            padding: 45px 30px;
+        }
+        .stat-icon-box i { color: var(--primary); font-size: 1.8rem; }
+
+        /* Client Testimonial Cards Layout */
+        .testimonial-bubble-card {
+            background: #F8FAFC;
+            border-radius: var(--radius);
+            padding: 35px;
+            border: 1px solid #E2E8F0;
+            height: 100%;
+            transition: var(--transition);
+        }
+        .testimonial-bubble-card:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.15);
+        }
+        .stars-rating { color: #F59E0B; font-size: 0.9rem; }
+        .avatar-client-img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
+
+        /* Call To Action Box Banner Element */
+        .project-cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 24px;
+            padding: 65px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Footer links styling */
+        footer { background-color: var(--secondary); color: var(--white); padding: 80px 0 20px; }
+        .footer-links a { color: #94A3B8; display: block; margin-bottom: 10px; transition: var(--transition); }
+        .footer-links a:hover { color: var(--primary); padding-left: 5px; }
+
+        @media (max-width: 991px) {
+            .portfolio-card-img { height: 200px; }
+            .project-cta-banner { padding: 45px 25px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Strip Bar Line -->
+    <div class="top-bar d-none d-lg-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <a href="tel:+911234567890"><i class="fas fa-phone-alt me-2"></i>+91 8012887018</a>
+                <a href="mailto:info@jvinfotech.com"><i class="fas fa-envelope me-2"></i>jvinfotech@gmail.com</a>
+                <span><i class="fas fa-clock me-2"></i>Mon - Sat: 9:00 AM - 7:00 PM</span>
+            </div>
+            <div>
+                <span class="me-3 opacity-75">Follow Us:</span>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Jv<span>Infotech</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="portfolioNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blogpage.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li>
+                </ul>
+                <a href="ContactUs.html" class="btn btn-primary shadow-sm">Get Free Audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navigation Breadcrumbs Location Line -->
+    <div class="container breadcrumb-wrap">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Portfolio Intro Hero Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <span class="text-primary fw-bold text-uppercase d-block mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">Our Portfolio</span>
+                    <h1 class="display-5 fw-bold mb-3">Our Work Speaks <span class="text-primary">For Our Results.</span></h1>
+                    <p class="fs-6 text-muted mb-4">Explore our successful projects across various industries. We build strategies that drive traffic, generate leads, and deliver measurable growth.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#" class="btn btn-primary px-4 py-3">Start Your Project <i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="#" class="btn btn-outline-custom px-4 py-3">View All Case Studies <i class="far fa-eye ms-2"></i></a>
+                    </div>
+                </div>
+                <!-- Perfectly spaced vector representation display column -->
+                <div class="col-lg-6 offset-lg-1 mt-5 mt-lg-0 text-center" data-aos="fade-left">
+                    <div class="position-relative d-inline-block">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=750&q=80" alt="Dashboard Presentation Portfolio" class="img-fluid rounded-4">
+                        
+                        <!-- Static Performance Result Overlap Badges as requested -->
+                        <div class="position-absolute bg-white px-3 py-2 rounded-3 text-start shadow-sm border border-light" style="top: 15%; left: -25px;">
+                            <span class="d-block fw-bold text-primary fs-5">+168%</span>
+                            <small class="text-muted small">Traffic Growth</small>
+                        </div>
+                        <div class="position-absolute bg-white px-3 py-2 rounded-3 text-start shadow-sm border border-light" style="bottom: 15%; right: -25px;">
+                            <span class="d-block fw-bold text-success fs-5">+245%</span>
+                            <small class="text-muted small">Leads Generated</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Buttons Container Row -->
+    <section class="pb-4 pt-2">
+        <div class="container text-center">
+            <div class="d-flex flex-wrap justify-content-center mb-4">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="seo">SEO</button>
+                <button class="filter-btn" data-filter="ads">Google Ads</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+                <button class="filter-btn" data-filter="design">Website Design</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="content">Content Marketing</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Nine Card Responsive Grid Matrix -->
+    <section class="py-4 bg-light bg-opacity-50">
+        <div class="container">
+            <div class="row g-4 id-portfolio-matrix">
+                
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6 mix-item seo">
+                    <div class="portfolio-card-wrap" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1608686207856-001b95cf60ca?auto=format&fit=crop&w=500&q=80" alt="Nature's Best Organics" class="portfolio-card-img">
+                        <div class="p-4">
+                            <span class="case-tag tag-seo">SEO</span>
+                            <h5 class="fw-bold mb-2">Nature's Best Organics</h5>
+                            <p class="small text-muted mb-4">Complete SEO campaign that increased organic traffic by 186% in 6 months.</p>
+                            <a href="#" class="small fw-semibold">View Case Study <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6 mix-item ads">
+                    <div class="portfolio-card-wrap" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=500&q=80" alt="Buildway Constructions" class="portfolio-card-img">
+                        <div class="p-4">
+                            <span class="case-tag tag-ads">Google Ads</span>
+                            <h5 class="fw-bold mb-2">Buildway Constructions</h5>
+                            <p class="small text-muted mb-4">Google Ads campaign that generated 300+ qualified leads in 90 days.</p>
+                            <a href="#" class="small fw-semibold">View Case Study <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6 mix-item social">
+                    <div class="portfolio-card-wrap" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&q=80" alt="Elegance Boutique" class="portfolio-card-img">
+                        <div class="p-4">
+                            <span class="case-tag tag-social">Social Media</span>
+                            <h5 class="fw-bold mb-2">Elegance Boutique</h5>
+                            <p class="small text-muted mb-4">Social media marketing strategy that increased engagement by 245%.</p>
+                            <a href="#" class="small fw-semibold">View Case Study <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-lg-4 col-md-6 mix-item web design">
+                    <div class="portfolio-card-wrap" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=500&q=80" alt="CarePlus Hospital" class="portfolio-card-img">
+                        <div class="p-4">
+                            <span class="case-tag tag-web">Web Development</span>
+                            <h5 class="fw-bold mb-2">CarePlus Hospital</h5>
+                            <p class="small text-muted mb-4">Custom website development with advanced features and seamless UI/UX.</p>
+                            <a href="#" class="small fw-semibold">View Case Study <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-lg-4 col-md-6 mix-item seo local">
+                    <div class="portfolio-card-wrap" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80" alt="Spice Garden Restaurant" class="portfolio-card-img">
+                        <div class="p-4">
+                            <span class="case-tag tag-local">Local SEO</span>
+                            <h5 class="fw-bold mb-2">Spice Garden Restaurant</h5>
+                            <p class="small text-muted mb-4">Local SEO strategy that improved Google Maps ranking & footfall by 150%.</p>
+                            <a href="#" class="small fw-semibold">View Case Study <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-lg-4 col-md-6 mix-item content">
+                    <div class="portfolio-card-wrap" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=500&q=80" alt="Glow & Go Skincare" class="portfolio-card-img">
+                        <div class="p-4">
+                            <span class="case-tag tag-content">Content Marketing</span>
+                            <h5 class="fw-bold mb-2">Glow & Go Skincare</h5>
+                            <p class="small text-muted mb-4">Content marketing strategy that established brand authority & trust.</p>
+                            <a href="#" class="small fw-semibold">View Case Study <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="col-lg-4 col-md-6 mix-item seo branding">
+                    <div class="portfolio-card-wrap" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80" alt="TechnoFab Industries" class="portfolio-card-img">
+                        <div class="p-4">
+                            <span class="case-tag tag-seo">SEO</span>
+                            <h5 class="fw-bold mb-2">TechnoFab Industries</h5>
+                            <p class="small text-muted mb-4">SEO strategy that increased organic leads by 210% in 8 months.</p>
+                            <a href="#" class="small fw-semibold">View Case Study <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="col-lg-4 col-md-6 mix-item ads">
+                    <div class="portfolio-card-wrap" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=80" alt="Bright Future Academy" class="portfolio-card-img">
+                        <div class="p-4">
+                            <span class="case-tag tag-ads">Google Ads</span>
+                            <h5 class="fw-bold mb-2">Bright Future Academy</h5>
+                            <p class="small text-muted mb-4">Google Ads campaign with 4.2x ROI and 350+ admissions.</p>
+                            <a href="#" class="small fw-semibold">View Case Study <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="col-lg-4 col-md-6 mix-item design web">
+                    <div class="portfolio-card-wrap" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=500&q=80" alt="FurniLook Furniture" class="portfolio-card-img">
+                        <div class="p-4">
+                            <span class="case-tag tag-content">Content Marketing</span>
+                            <h5 class="fw-bold mb-2">FurniLook Furniture</h5>
+                            <p class="small text-muted mb-4">E-commerce website development with custom features and fast performance.</p>
+                            <a href="#" class="small fw-semibold">View Case Study <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-custom px-4 py-2"><i class="fas fa-th-large me-2"></i> View More Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Five Strategic Numerical Counter Blocks -->
+    <div class="container my-5" data-aos="fade-up">
+        <div class="dark-stats-bar shadow">
+            <div class="row text-center g-4">
+                <div class="col border-end border-secondary border-opacity-10">
+                    <div class="stat-icon-box mb-2"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="fw-bold m-0 text-white">500+</h3>
+                    <p class="small text-muted m-0 mt-1">Projects Completed</p>
+                </div>
+                <div class="col border-end border-secondary border-opacity-10">
+                    <div class="stat-icon-box mb-2"><i class="fas fa-smile"></i></div>
+                    <h3 class="fw-bold m-0 text-white">120+</h3>
+                    <p class="small text-muted m-0 mt-1">Happy Clients</p>
+                </div>
+                <div class="col border-end border-secondary border-opacity-10">
+                    <div class="stat-icon-box mb-2"><i class="fas fa-award"></i></div>
+                    <h3 class="fw-bold m-0 text-white">10+</h3>
+                    <p class="small text-muted m-0 mt-1">Years Experience</p>
+                </div>
+                <div class="col border-end border-secondary border-opacity-10">
+                    <div class="stat-icon-box mb-2"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="fw-bold m-0 text-white">98%</h3>
+                    <p class="small text-muted m-0 mt-1">Client Retention Rate</p>
+                </div>
+                <div class="col">
+                    <div class="stat-icon-box mb-2"><i class="fas fa-globe"></i></div>
+                    <h3 class="fw-bold m-0 text-white">35+</h3>
+                    <p class="small text-muted m-0 mt-1">Industries Served</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- What Our Clients Say Grid Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-primary fw-bold text-uppercase d-block mb-1" style="font-size: 0.8rem; letter-spacing: 0.5px;">What Our Clients Say</span>
+                <h2 class="fw-bold">Success Stories from Our Clients</h2>
+                <div class="mx-auto bg-primary mt-2" style="width: 40px; height: 3px;"></div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Testimonial 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-bubble-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <i class="fas fa-quote-left text-primary opacity-20 fs-3"></i>
+                            <div class="stars-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="small text-muted mb-4">"JV Infotech transformed our online presence. Their SEO strategy brought us to the top of Google and increased our business significantly."</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Sharma" class="avatar-client-img">
+                            <div>
+                                <h6 class="fw-bold m-0 text-dark small">Rahul Sharma</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">CEO, Buildway Constructions</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-bubble-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <i class="fas fa-quote-left text-primary opacity-20 fs-3"></i>
+                            <div class="stars-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="small text-muted mb-4">"The Google Ads campaign by JV Infotech generated high-quality leads consistently. Great team, excellent results!"</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Neha Patel" class="avatar-client-img">
+                            <div>
+                                <h6 class="fw-bold m-0 text-dark small">Neha Patel</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">Marketing Head, CarePlus Hospital</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-bubble-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <i class="fas fa-quote-left text-primary opacity-20 fs-3"></i>
+                            <div class="stars-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="small text-muted mb-4">"Professional, creative, and result-driven team. Our social media engagement increased like never before!"</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Ankit Verma" class="avatar-client-img">
+                            <div>
+                                <h6 class="fw-bold m-0 text-dark small">Ankit Verma</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">Founder, Elegance Boutique</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel dot indicators styling indicator placeholder row -->
+            <div class="d-flex justify-content-center gap-2 mt-4">
+                <span class="bg-primary rounded-circle" style="width:8px; height:8px;"></span>
+                <span class="bg-secondary opacity-20 rounded-circle" style="width:8px; height:8px;"></span>
+                <span class="bg-secondary opacity-20 rounded-circle" style="width:8px; height:8px;"></span>
+                <span class="bg-secondary opacity-20 rounded-circle" style="width:8px; height:8px;"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner With Flat Dynamic UI Layout -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="project-cta-banner text-white" data-aos="zoom-in">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
+                        <h2 class="fw-bold display-6 mb-2">Have a Project in Mind?</h2>
+                        <p class="text-white-50 m-0">Let's build something amazing together. Get your free consultation today!</p>
+                        <div class="mt-4 d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap">
+                            <a href="#" class="btn btn-light text-primary fw-bold px-4 py-3 rounded-3">Get Free Consultation</a>
+                            <a href="#" class="btn btn-outline-light px-4 py-3 rounded-3">Let's Talk <i class="far fa-comment-alt ms-2"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center d-none d-lg-block">
+                        <div class="bg-white p-4 rounded-4 shadow-sm mx-auto" style="max-width: 320px; border: 1px solid rgba(255,255,255,0.2);">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-danger rounded-pill px-2">Live</span>
+                                <i class="fas fa-chart-line text-primary"></i>
+                            </div>
+                            <div class="bg-light rounded-3 p-3 mb-2 text-start">
+                                <div style="width:70%; height:8px; background:#CBD5E1;" class="rounded mb-2"></div>
+                                <div style="width:45%; height:6px; background:#E2E8F0;" class="rounded"></div>
+                            </div>
+                            <div class="bg-light rounded-3 p-3 text-start">
+                                <div style="width:85%; height:8px; background:#2563EB;" class="rounded mb-2"></div>
+                                <div style="width:30%; height:6px; background:#E2E8F0;" class="rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Structure Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="fw-bold text-white mb-4">JV <span class="text-primary">Infotech.</span></h3>
+                    <p class="text-white-50 small mb-4">We help businesses grow online with result-driven digital marketing strategies. Your growth is our mission.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Services</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Blog</a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <a href="#">SEO Services</a>
+                    <a href="#">Google Ads Management</a>
+                    <a href="#">Social Media Marketing</a>
+                    <a href="#">Website Development</a>
+                    <a href="#">Local SEO Services</a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p class="small text-white-50 mb-3">Subscribe to get the latest updates and marketing tips.</p>
+                    <form class="d-flex mb-3">
+                        <input type="email" class="form-control bg-transparent text-white border-secondary" placeholder="Your email address" style="border-radius: 8px 0 0 8px;" required>
+                        <button class="btn btn-primary" type="submit" style="border-radius: 0 8px 8px 0;"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <ul class="list-unstyled text-white-50 small">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> 123, Business Street, City, State - 110001</li>
+                        <li><i class="fas fa-clock me-2 text-primary"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-secondary opacity-25">
+            
+            <div class="row pt-3 align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white-50 small mb-0">&copy; 2026 JV Infotech. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0 footer-links">
+                    <a href="#" class="d-inline-block me-3 mb-0 small">Privacy Policy</a>
+                    <a href="#" class="d-inline-block mb-0 small">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize Scroll Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80,
+        });
+
+        // Interactive Categorized Filtering Grid Script Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioGridItems = document.querySelectorAll('.mix-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const chosenFilter = button.getAttribute('data-filter');
+
+                portfolioGridItems.forEach(item => {
+                    if (chosenFilter === 'all' || item.classList.contains(chosenFilter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

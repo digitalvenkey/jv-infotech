@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact JV Infotech - Let's Build Something Amazing Together. Reach out for expert digital solutions.">
+    <title>Contact Us | JV Infotech</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="ContactUs.css">
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar d-none d-lg-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <a href="tel:+911234567890"><i class="fas fa-phone-alt me-2"></i>+91 8012887018</a>
+                <a href="mailto:info@jvinfotech.com"><i class="fas fa-envelope me-2"></i>jvinfotech@gmail.com</a>
+                <span><i class="fas fa-clock me-2"></i>Mon - Sat: 9:00 AM - 7:00 PM</span>
+            </div>
+            <div>
+                <span class="me-3 opacity-75">Follow Us:</span>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Jv<span>Infotech</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contactNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="contactNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blogpage.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ContactUs.html">Contact Us</a></li>
+                </ul>
+                <a href="#" class="btn btn-primary shadow-sm">Get Free Audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Content Block -->
+    <section class="py-5 bg-hero-gradient overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <span class="text-primary fw-bold text-uppercase d-block mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">Contact Us</span>
+                    <h1 class="display-5 fw-bold mb-3">Let's Build Something<br>Amazing <span class="text-primary">Together!</span></h1>
+                    <p class="fs-6 text-muted mb-4 pb-2" style="max-width: 520px;">Have a project in mind or need expert guidance? We're just a message away. Let's connect and grow your business to the next level.</p>
+                    
+                    <!-- Feature Checklist Column Row -->
+                    <div class="d-flex flex-wrap gap-4 mb-4 mb-lg-0">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="badge-feature-icon"><i class="fas fa-bolt"></i></div>
+                            <span class="small fw-bold text-secondary lh-sm">Quick<br>Response</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="badge-feature-icon"><i class="fas fa-headset"></i></div>
+                            <span class="small fw-bold text-secondary lh-sm">Expert<br>Support</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="badge-feature-icon"><i class="fas fa-shield-alt"></i></div>
+                            <span class="small fw-bold text-secondary lh-sm">100% Secure<br>& Confidential</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Card -->
+                <div class="col-lg-5 col-xl-4 offset-xl-1 mt-5 mt-lg-0" data-aos="fade-left">
+                    <div class="form-container-card">
+                        <h4 class="fw-bold mb-4 text-dark">Send Us a Message</h4>
+                        
+                        <form action="send-mail.php" method="POST">
+                            <div class="input-group-wrapper">
+                                <i class="far fa-user"></i>
+                                <input type="text" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="input-group-wrapper">
+                                <i class="far fa-envelope"></i>
+                                <input type="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="input-group-wrapper">
+                                <i class="fas fa-phone-alt"></i>
+                                <input type="tel" name="phone" placeholder="Phone Number" required>
+                            </div>
+                            <div class="input-group-wrapper">
+                                <i class="far fa-bookmark"></i>
+                                <input type="text" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="input-group-wrapper">
+                                <textarea name="message" rows="4" placeholder="How can we help you?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-3 mt-2 font-weight-semibold">Send Message <i class="fas fa-arrow-right ms-2"></i></button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-Column Contact Information Cards Grid -->
+    <section class="py-5 bg-white position-relative" style="z-index: 5; margin-top: -30px;">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <!-- Location Info -->
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-metric-box">
+                        <div class="info-icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                        <h5 class="fw-bold mb-2">Our Location</h5>
+                        <p class="small text-muted mb-3 lh-sm">Near to Mathigiri X Road,<br>Hosur - 635110</p>
+                        <a href="#map-block" class="small fw-bold">Get Directions <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <!-- Phone Info -->
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-metric-box">
+                        <div class="info-icon-circle"><i class="fas fa-phone-alt"></i></div>
+                        <h5 class="fw-bold mb-2">Phone</h5>
+                        <p class="small text-muted mb-3 lh-sm">We're just a call away.<br>Call us for any queries.</p>
+                        <a href="tel:+911234567890" class="small fw-bold text-dark">+91 12345 67890</a>
+                    </div>
+                </div>
+                <!-- Email Info -->
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-metric-box">
+                        <div class="info-icon-circle"><i class="fas fa-envelope"></i></div>
+                        <h5 class="fw-bold mb-2">Email</h5>
+                        <p class="small text-muted mb-3 lh-sm">Drop us an email anytime.<br>We'll get back to you.</p>
+                        <a href="mailto:info@jvinfotech.com" class="small fw-bold text-lowercase">info@jvinfotech.com</a>
+                    </div>
+                </div>
+                <!-- Hours Info -->
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="info-metric-box">
+                        <div class="info-icon-circle"><i class="fas fa-clock"></i></div>
+                        <h5 class="fw-bold mb-2">Working Hours</h5>
+                        <p class="small text-muted mb-1 lh-sm">Mon - Sat: 9:00 AM - 7:00 PM</p>
+                        <span class="small fw-bold text-danger">Sunday: Closed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Layout Representation Wrapper Section -->
+    <section id="map-block" class="py-4 bg-white" data-aos="fade-up">
+        <div class="container">
+            <div class="map-viewport-wrapper">
+                <!-- Fallback background image simulating the clean graphic map design pattern -->
+                <div class="map-placeholder-graphic"></div>
+                <!-- Floating Card Widget Overlap -->
+                <div class="map-info-floating-card shadow-lg">
+                    <h6 class="fw-bold mb-2">JV Infotech</h6>
+                    <p class="small text-muted mb-3 lh-sm">Near to Mathigiri X Road,<br>Hosur - 635110</p>
+                    <a href="https://maps.google.com" target="_blank" class="small fw-bold">View on Google Maps <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Matrix Layout Section -->
+    <section class="py-5 bg-white my-4">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <h3 class="fw-bold text-dark mb-3">Frequently Asked Questions</h3>
+                    <div class="mx-0 bg-primary mb-3" style="width: 40px; height: 3px;"></div>
+                    <p class="small text-muted mb-4">Have questions? We've got answers. If you can't find what you're looking for, feel free to contact us.</p>
+                    <div class="d-none d-lg-block opacity-75 mt-4">
+                        <i class="fas fa-comments text-primary" style="font-size: 6rem;"></i>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8" data-aos="fade-left">
+                    <div class="accordion custom-faq-accordion" id="faqGroup">
+                        <!-- Item 1 -->
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                                    What services does JV Infotech offer?
+                                </button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqGroup">
+                                <div class="accordion-body text-muted small">
+                                    JV Infotech offers a comprehensive suite of digital conversion tools including advanced SEO optimization, structured Google Ads campaigns, high-impact social media frameworks, and custom premium front-end solutions.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                    How can I get a free proposal for my project?
+                                </button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqGroup">
+                                <div class="accordion-body text-muted small">
+                                    You can get a free proposal by filling out the consultation request container above or by scheduling a discovery call through our audit pathway options.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                                    How long does it take to see results?
+                                </button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqGroup">
+                                <div class="accordion-body text-muted small">
+                                    While paid performance marketing options produce conversion updates immediately, optimization procedures such as organic strategy metrics natively gain authority indicators across 3 to 6 months.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#f4">
+                                    Do you work with businesses of all sizes?
+                                </button>
+                            </h2>
+                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqGroup">
+                                <div class="accordion-body text-muted small">
+                                    Yes, we customize specific growth structures matching small startups, established business models, or scalable enterprise platforms seamlessly.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#f5">
+                                    Can I schedule a consultation with your team?
+                                </button>
+                            </h2>
+                            <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqGroup">
+                                <div class="accordion-body text-muted small">
+                                    Absolutely. Use the input panel above or get in touch through our emergency lines to book an automated calendar briefing today.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Conversion CTA Panel Component -->
+    <section class="py-4 bg-white">
+        <div class="container">
+            <div class="project-cta-banner text-white" data-aos="zoom-in">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
+                        <h2 class="fw-bold display-6 mb-2">Ready to <span style="color:#93c5fd;">Grow Your Business?</span></h2>
+                        <p class="text-white-50 m-0 small">Let's create a powerful digital strategy that drives results and accelerates your growth.</p>
+                    </div>
+                    <div class="col-lg-5 text-center text-lg-end">
+                        <div class="d-inline-flex gap-3 flex-wrap justify-content-center">
+                            <a href="#" class="btn btn-light text-primary fw-bold px-4 py-3 rounded-3" style="font-size: 0.9rem;">Get Free Consultation <i class="fas fa-arrow-right ms-2"></i></a>
+                            <a href="#" class="btn btn-outline-light px-4 py-3 rounded-3" style="font-size: 0.9rem;">Let's Talk <i class="far fa-clock ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Footer Area Block -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="fw-bold text-white mb-4">JV <span class="text-primary">Infotech.</span></h3>
+                    <p class="text-white-50 small mb-4">We help businesses grow online with result-driven digital marketing strategies. Your growth is our mission.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white bg-primary p-2 rounded-circle d-flex align-items-center justify-content-center" style="width:35px; height:35px;"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Services</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Blog</a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <a href="#">SEO Services</a>
+                    <a href="#">Google Ads Management</a>
+                    <a href="#">Social Media Marketing</a>
+                    <a href="#">Website Development</a>
+                    <a href="#">Local SEO Services</a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-4">Contact Us</h5>
+                    <ul class="list-unstyled text-white-50 small mb-4">
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2 text-primary"></i> +91 12345 67890</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> info@jvinfotech.com</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> Near to Mathigiri X Road, Hosur - 635110</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2 text-primary"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+                    </ul>
+                    <form class="d-flex">
+                        <input type="email" class="form-control bg-transparent text-white border-secondary" placeholder="Your email address" style="border-radius: 8px 0 0 8px;" required>
+                        <button class="btn btn-primary" type="submit" style="border-radius: 0 8px 8px 0;"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <hr class="border-secondary opacity-25">
+            
+            <div class="row pt-3 align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white-50 small mb-0">&copy; 2026 JV Infotech. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0 footer-links">
+                    <a href="#" class="d-inline-block me-3 mb-0 small">Privacy Policy</a>
+                    <a href="#" class="d-inline-block mb-0 small">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Scripts Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 60 });
+    </script>
+</body>
+</html>
